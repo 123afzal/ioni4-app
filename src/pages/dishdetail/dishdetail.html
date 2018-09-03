@@ -65,4 +65,16 @@
       </p>
     </ion-item>
   </ion-list>
+
+  <ion-fab right bottom [hidden]="favorite">
+    <button ion-fab (click)="addToFavoriteDish()">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-fab right bottom *ngIf="favorite">
+    <button ion-fab>
+      <ion-icon name="heart" color="danger"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
