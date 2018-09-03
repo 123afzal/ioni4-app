@@ -18,7 +18,11 @@
 
 <ion-content>
   <div *ngIf="dishes">
-    <ion-card class="pointer" *ngFor="let dish of dishes" (click)="dishSelected($event, dish)">
+    <ion-card class="pointer"
+              *ngFor="let dish of dishes"
+              (click)="dishSelected($event, dish)"
+              (pan)="addToFavoriteDish(dish.id)"
+    >
       <img src="{{BaseURL + '/' + dish.image}}">
       <div class="card-title">{{ dish.name }}</div>
       <div class="card-subtitle">{{ dish.description }}</div>

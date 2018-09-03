@@ -20,7 +20,7 @@ export class DishdetailPage {
   errorMessage: string;
   avgstars: string;
   numcomments: number;
-  favorite: boolean = false;
+  favorite: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private favoriteService: FavoriteProvider,
@@ -38,7 +38,7 @@ export class DishdetailPage {
     console.log('ionViewDidLoad DishdetailPage');
   }
 
-  addToFavoriteDish(id: number){
-    this.favorite = this.favoriteService.addFavorites(id);
+  addToFavoriteDish(){
+    this.favorite = this.favoriteService.addFavorites(this.dish.id);
   }
 }
