@@ -22,7 +22,8 @@ export class FavoriteProvider {
   }
 
   addFavorites(id: number): boolean{
-    this.favorites.push(id);
+    if (!this.isFavoriteDish(id))
+      this.favorites.push(id);
     return true;
   }
 
