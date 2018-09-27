@@ -17,26 +17,31 @@
 
 
 <ion-content>
-  <div *ngIf="dishes">
-    <ion-card class="pointer"
-              *ngFor="let dish of dishes"
-              (click)="dishSelected($event, dish)"
-              (pan)="addToFavoriteDish(dish.id)"
-    >
-      <img src="{{BaseURL + '/' + dish.image}}">
-      <div class="card-title">{{ dish.name }}</div>
-      <div class="card-subtitle">{{ dish.description }}</div>
-    </ion-card>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-4 *ngFor="let dish of dishes">
+        <div *ngIf="dishes">
+          <ion-card class="pointer"
+                    (click)="dishSelected($event, dish)"
+                    (pan)="addToFavoriteDish(dish.id)"
+          >
+            <img src="{{BaseURL + '/' + dish.image}}">
+            <div class="card-title">{{ dish.name }}</div>
+            <div class="card-subtitle">{{ dish.description }}</div>
+          </ion-card>
+        </div>
 
-  <div [hidden]="dishes || errorMessage" text-center>
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please wait</h4>
-  </div>
+        <div [hidden]="dishes || errorMessage" text-center>
+          <ion-spinner></ion-spinner>
+          <h4>Loading . . . Please wait</h4>
+        </div>
 
-  <div *ngIf="errorMessage">
-    <h2>Error</h2>
-    <h4>{{ errorMessage }}</h4>
-  </div>
+        <div *ngIf="errorMessage">
+          <h2>Error</h2>
+          <h4>{{ errorMessage }}</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
